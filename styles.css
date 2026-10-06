@@ -1,0 +1,99 @@
+:root,
+[data-bs-theme="dark"] {
+  --bs-body-bg: #10141b;
+  --bs-body-bg-rgb: 16, 20, 27;
+  --bs-tertiary-bg: #161c26;
+  --bs-tertiary-bg-rgb: 22, 28, 38;
+  --bs-border-color: #2a3442;
+
+  --bs-body-font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --bs-gradient: linear-gradient(135deg,
+                   rgba(255, 255, 255, 0.16) 0%,
+                   rgba(255, 255, 255, 0) 40%,
+                   rgba(8, 15, 40, 0.55) 100%);
+}
+
+h1, h2, h3,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.navbar-brand,
+.site-header .lead {
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+h1 { letter-spacing: -0.02em; }
+
+.page-section {
+  min-height: 30vh;
+  padding-top: 5.5rem;
+  padding-bottom: 3rem;
+}
+#contact { min-height: calc(75vh - 10rem); }
+
+.section-title {
+  padding-left: 0.9rem;
+  border-left: 4px solid var(--bs-primary);
+}
+
+#mainNav .nav-link {
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+#mainNav .nav-link.active {
+  color: var(--bs-warning);
+  border-bottom-color: var(--bs-warning);
+}
+
+@media (max-width: 991.98px) {
+  #navLinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0 1.25rem;
+    background: var(--bs-tertiary-bg);
+    border-bottom: 1px solid var(--bs-border-color);
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.35);
+  }
+  #navLinks .navbar-nav { padding: 0.5rem 0 1rem; }
+}
+
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  border-color: var(--bs-primary);
+  box-shadow: 0 0.75rem 1.5rem rgba(13, 110, 253, 0.2);
+}
+
+.card-img-top {
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+}
+
+.table > :not(caption) > * > * { padding: 0.75rem; }
+@media (max-width: 575.98px) {
+  .table { font-size: 0.875rem; }
+  .table > :not(caption) > * > * { padding: 0.6rem; }
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: var(--bs-body-bg);
+  letter-spacing: 0.18em;
+  animation: loader-exit 0.5s ease 1.2s forwards;
+}
+.page-loader .spinner-border {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+@keyframes loader-exit {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift,
+  .hover-lift:hover { transition: none; transform: none; }
+  .page-loader { animation-delay: 0.3s; }
+}
